@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Object Try Out</title>
+	<script type="text/javascript">
+		var ACT = { 
+			english:0, 
+			math1:0, 
+			reading:0, 
+			science:0,
+			totalScore: function() {
+				return (this.english + this.math1 + this.reading + this.science)/4;
+			}
+		}
+		var yourScore = function() {
+			alert("Your English score is " + ACT.english);
+			alert("Your Math score is " + ACT.math1);
+			alert("Your Reading score is " + ACT.reading);
+			alert("Your Science score is " + ACT.science)
+			alert("Your Total score is " + ACT.totalScore())
+		}
+
+		var takeTest = function() {
+			ACT.english = 0;
+			ACT.math1 = 0;
+			ACT.reading = 0;
+			ACT.science = 0;
+			var englishScore = prompt("What is past tense of word give?","");
+			var mathScore = prompt("What is 1 + 1?","");
+			var readingScore = prompt("Do you like to read? ","");
+			var scienceScore = prompt("What is unit of velocity?","")
+			if (englishScore.toUpperCase() === "GAVE") {
+				ACT.english = 36;
+			}
+			if (mathScore === "2") {
+				ACT.math1 = 36;
+			}
+			if (readingScore.toUpperCase() === "YES" ) {
+				ACT.reading = 36;
+				console.log("I actually don't")
+			}
+			if (scienceScore === "m/s") {
+				ACT.science = 36;
+			}
+
+			if (ACT.totalScore() === 36) {
+				document.getElementById("changeMe").innerHTML = "GOOD JOB"
+			} else if (ACT.totalScore() === 27) {
+				document.getElementById("changeMe").innerHTML = "You could done better"
+			} else if (ACT.totalScore() === 18) {
+				document.getElementById("changeMe").innerHTML = "You need study harder"
+			} else if (ACT.totalScore() === 9){
+				document.getElementById("changeMe").innerHTML = "STUDYYYYYYYYYY!!!!!"
+			} else {
+				document.getElementById("changeMe").innerHTML = "Go Take SAT"
+			}
+			console.log("I really wish ACT is this EASYYYYY!!!!")
+		}
+	</script>
+</head>
+<body>
+	<h1>ACT TEST</h1>
+	<button onclick="yourScore()">Your current score</button>
+	<button onclick="takeTest()">Take your test</button>
+	<br>
+	<p id = "changeMe"></p>
+</body>
+</html>
